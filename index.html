@@ -123,7 +123,7 @@
 .quote[data-lang="he"]{color:#f5b9f0;}
 .language[lang="he"] .quote{direction:rtl;unicode-bidi:plaintext;}
 
-/* Cinematic metallic creator signature: platinum, sapphire and rose reflections. */
+/* Always-looping, mobile-Safari-safe polished platinum wordmark. */
 .page{
   flex-direction:column;
   align-items:center;
@@ -145,107 +145,130 @@
   letter-spacing:.025em;
   user-select:none;
   isolation:isolate;
-  /* High-contrast polished platinum with interleaved pink/sky reflections. */
-  background-image:linear-gradient(108deg,
-    #8291a6 0%,#fff 7%,#b9bfd0 13%,#f7fdff 19%,
-    #ff9bd7 29%,#fff5fc 34%,#92dffc 43%,#fff 49%,
-    #9ba8bc 55%,#ffffff 63%,#ffb1e0 72%,#7bc9fa 81%,#fff 91%,#a4afc4 100%);
-  background-size:330% 100%;
-  background-position:100% center;
+  background-image:linear-gradient(110deg,
+    #c1cbd9 0%,#fff 9%,#b7c0d2 18%,#ffabd9 28%,
+    #faffff 36%,#8bd5ff 47%,#fff 57%,
+    #aeb9cd 68%,#ffd1eb 79%,#b6e9ff 88%,#faffff 100%);
+  background-size:270% 100%;
+  background-position:50% 50%;
   -webkit-background-clip:text;
   background-clip:text;
   -webkit-text-fill-color:transparent;
   color:transparent;
-  filter:drop-shadow(0 0 3px rgba(248,243,255,.55))
-         drop-shadow(0 0 10px rgba(162,209,255,.25));
-  animation:brand-platinum-flow 9s linear infinite,
-            brand-cinematic-breathe 4.2s ease-in-out infinite;
-  will-change:filter,background-position;
+  transform:translateZ(0);
+  text-shadow:none;
+  /* Keep the main glyphs on the GPU; don't animate expensive blur or filter. */
+  will-change:transform,background-position;
 }
-/* Subtle backlight, glowing as if the wordmark is engraved in illuminated metal. */
 .site-brand::before{
   content:"";
   position:absolute;
-  pointer-events:none;
   z-index:-1;
-  inset:-10px -14px;
+  pointer-events:none;
+  inset:-12px -15px;
   border-radius:50%;
-  background:radial-gradient(ellipse at center,
-     rgba(255,211,245,.17) 0%,
-     rgba(120,198,255,.11) 32%,
-     transparent 77%);
-  filter:blur(12px);
-  animation:brand-ambient-aura 4.2s ease-in-out infinite;
+  background:radial-gradient(ellipse,
+    rgba(255,207,236,.20) 0%,
+    rgba(132,207,255,.14) 36%,transparent 75%);
+  filter:blur(9px);
+  opacity:.58;
+  transform:translateZ(0);
+  will-change:opacity,transform;
 }
-/* A thin, bright specular sweep travels over the actual glyphs. */
 .site-brand::after{
   content:attr(data-text);
   position:absolute;
-  inset:3px 7px 5px;
   z-index:1;
   pointer-events:none;
   display:block;
+  inset:3px 7px 5px;
   white-space:normal;
-  text-align:center;
   font:inherit;
-  letter-spacing:inherit;
   line-height:inherit;
+  letter-spacing:inherit;
+  text-align:inherit;
   color:transparent;
   -webkit-text-fill-color:transparent;
   background:linear-gradient(105deg,
-    transparent 0%,
-    transparent 39%,
-    rgba(255,255,255,.10) 43%,
-    rgba(255,252,254,.96) 47%,
-    #ffffff 48.5%,
-    rgba(194,229,255,.86) 50%,
-    rgba(255,214,237,.24) 53%,
+    transparent 0%,transparent 42%,
+    rgba(255,243,253,.32) 45%,
+    rgba(255,255,255,.99) 48.5%,
+    rgba(151,219,255,.88) 50%,
+    rgba(255,183,225,.34) 54%,
     transparent 58%,transparent 100%);
-  background-size:300% 100%;
-  background-position:130% center;
+  background-size:350% 100%;
+  background-position:120% 50%;
   -webkit-background-clip:text;
   background-clip:text;
-  filter:drop-shadow(0 0 5px rgba(255,255,255,.60));
-  animation:brand-cinematic-light-pass 5.2s cubic-bezier(.42,0,.2,1) infinite;
+  opacity:0;
+  transform:translateZ(0);
+  will-change:opacity,background-position;
 }
-@keyframes brand-platinum-flow{
-  0%{background-position:100% center}
-  100%{background-position:-145% center}
+/* Three genuinely infinite CSS cycles, each able to restart on mobile resume. */
+.site-brand.brand-animate{
+  animation:mx-chrome-cycle 7s ease-in-out infinite,
+            mx-soft-pulse 3.8s ease-in-out infinite;
+  -webkit-animation:mx-chrome-cycle 7s ease-in-out infinite,
+                    mx-soft-pulse 3.8s ease-in-out infinite;
 }
-@keyframes brand-cinematic-breathe{
-  0%,100%{
-    transform:scale(1);
-    filter:drop-shadow(0 0 3px rgba(255,255,255,.43))
-           drop-shadow(0 0 8px rgba(119,203,255,.22));
-  }
-  50%{
-    transform:scale(1.035);
-    filter:drop-shadow(0 0 5px rgba(255,255,255,.82))
-           drop-shadow(0 0 15px rgba(252,165,220,.45))
-           drop-shadow(0 0 20px rgba(118,202,255,.36));
-  }
+.site-brand.brand-animate::before{
+  animation:mx-ambient-cycle 3.8s ease-in-out infinite;
+  -webkit-animation:mx-ambient-cycle 3.8s ease-in-out infinite;
 }
-@keyframes brand-ambient-aura{
-  0%,100%{opacity:.56;transform:scale(.95)}
-  50%{opacity:1;transform:scale(1.09)}
+.site-brand.brand-animate::after{
+  animation:mx-specular-cycle 5.2s ease-in-out infinite;
+  -webkit-animation:mx-specular-cycle 5.2s ease-in-out infinite;
 }
-@keyframes brand-cinematic-light-pass{
-  0%,12%{background-position:135% center;opacity:0}
-  19%{opacity:1}
-  51%{background-position:-135% center;opacity:1}
-  57%,100%{background-position:-135% center;opacity:0}
+@keyframes mx-chrome-cycle{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
+@keyframes mx-soft-pulse{
+  0%,100%{transform:translateZ(0) scale(1)}
+  50%{transform:translateZ(0) scale(1.035)}
+}
+@keyframes mx-ambient-cycle{
+  0%,100%{opacity:.55;transform:translateZ(0) scale(.97)}
+  50%{opacity:1;transform:translateZ(0) scale(1.08)}
+}
+@keyframes mx-specular-cycle{
+  0%,10%{opacity:0;background-position:120% 50%}
+  18%{opacity:.9}
+  46%{opacity:1;background-position:-105% 50%}
+  55%,100%{opacity:0;background-position:-105% 50%}
+}
+/* Use vendor keyframes for installed iOS / older Mobile Safari PWA rendering. */
+@-webkit-keyframes mx-chrome-cycle{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
+@-webkit-keyframes mx-soft-pulse{
+  0%,100%{-webkit-transform:translateZ(0) scale(1)}
+  50%{-webkit-transform:translateZ(0) scale(1.035)}
+}
+@-webkit-keyframes mx-ambient-cycle{
+  0%,100%{opacity:.55;-webkit-transform:translateZ(0) scale(.97)}
+  50%{opacity:1;-webkit-transform:translateZ(0) scale(1.08)}
+}
+@-webkit-keyframes mx-specular-cycle{
+  0%,10%{opacity:0;background-position:120% 50%}
+  18%{opacity:.9}
+  46%{opacity:1;background-position:-105% 50%}
+  55%,100%{opacity:0;background-position:-105% 50%}
 }
 @media(max-width:600px){
   .page{gap:clamp(26px,7vw,38px)}
   .site-brand{font-size:clamp(13px,3.55vw,16px);letter-spacing:0}
-  .site-brand::after{inset:3px 7px 5px}
 }
 @media(prefers-reduced-motion:reduce){
-  .site-brand,.site-brand::before,.site-brand::after{
+  .site-brand.brand-animate,
+  .site-brand.brand-animate::before,
+  .site-brand.brand-animate::after{
     animation:none!important;
+    -webkit-animation:none!important;
     will-change:auto;
   }
-  .site-brand{background-position:40% center}
+  .site-brand{background-position:50% 50%}
   .site-brand::after{opacity:0}
 }
 
@@ -448,6 +471,42 @@ dialog.addEventListener("click",e=>{if(e.target===dialog)dismiss()});
 if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
 })();
 
+</script>
+
+<script>
+(function(){
+"use strict";
+const brand=document.querySelector(".site-brand");
+if(!brand)return;
+const reduce=window.matchMedia("(prefers-reduced-motion: reduce)");
+let ticket=0;
+function start(){
+ if(reduce.matches){
+   brand.classList.remove("brand-animate");
+   return;
+ }
+ brand.classList.add("brand-animate");
+}
+function restart(){
+ if(document.hidden||reduce.matches)return;
+ brand.classList.remove("brand-animate");
+ void brand.offsetWidth; // Force WebKit to release stale pseudo-element animations.
+ cancelAnimationFrame(ticket);
+ ticket=requestAnimationFrame(function(){brand.classList.add("brand-animate");});
+}
+start();
+window.addEventListener("pageshow",restart);
+window.addEventListener("focus",restart);
+document.addEventListener("visibilitychange",function(){if(!document.hidden)restart();});
+if(typeof reduce.addEventListener==="function")reduce.addEventListener("change",restart);
+else if(typeof reduce.addListener==="function")reduce.addListener(function(){if(reduce.matches)brand.classList.remove("brand-animate");else restart();});
+// iOS Home Screen and low-power WebKit occasionally freeze background-clipped animations.
+// Re-arm the finite compositor state periodically; each glow cycle otherwise runs infinitely.
+window.setInterval(function(){
+ if(document.hidden||reduce.matches)return;
+ restart();
+},26000);
+})();
 </script>
 </body>
 </html>
