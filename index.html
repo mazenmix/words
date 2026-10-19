@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#000000">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="MX Words">
+  <meta name="description" content="Powerful reminders about time and action, in nine languages.">
+  <meta property="og:title" content="MX Words">
+  <meta property="og:description" content="One thought. Nine languages. A new perspective every 30 seconds.">
+  <title>MX Words</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+  :root{color-scheme:dark;--white:#ffffff;--bg:#000000;--secondary:#c0c0c0}
+  *{box-sizing:border-box}
+  html{min-height:100%;background:var(--bg)}
+  body{
+    min-width:320px;min-height:100vh;min-height:100svh;
+    margin:0;background:var(--bg);color:var(--white);
+    font-family:Tahoma,"Noto Sans","Microsoft YaHei","Yu Gothic","Noto Sans Thai",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  .page{
+    width:min(1040px,100%);min-height:100vh;min-height:100svh;
+    margin:0 auto;padding:clamp(38px,5.2vw,78px) clamp(20px,6vw,75px);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .quotes{
+    width:100%;display:grid;grid-template-columns:minmax(0,1fr);
+    row-gap:clamp(18px,2.6vh,29px);align-items:center;
+    text-align:center;
+  }
+  .language{min-width:0;position:relative}
+  .language-name{
+    display:block;margin:0 0 6px;color:#8c9594;font-size:clamp(9px,.8vw,11px);
+    line-height:1.3;font-weight:400;letter-spacing:.15em;
+    text-transform:uppercase;
+  }
+  .quote{
+    margin:0 auto;max-width:950px;color:#fff;
+    font-family:Tahoma,"Noto Sans","Microsoft YaHei","Yu Gothic","Noto Sans Thai",Arial,sans-serif;
+    font-size:clamp(15px,1.34vw,20px);font-weight:400;
+    line-height:1.55;letter-spacing:0;overflow-wrap:break-word;
+    text-shadow:0 0 2px rgba(255,255,255,.15),0 0 12px rgba(255,255,255,.07);
+    transition:opacity .49s cubic-bezier(.2,.8,.2,1),transform .49s cubic-bezier(.2,.8,.2,1),filter .49s ease;
+  }
+  .language:first-child .quote{font-size:clamp(21px,1.95vw,29px);line-height:1.44;font-weight:700}
+  .language:nth-child(2) .quote{font-size:clamp(19px,1.68vw,25px);line-height:1.64}
+  .quotes.fading .quote{opacity:0;transform:translateY(-7px) scale(.985);filter:blur(3px)}
+  .quotes.entering .quote{animation:light-pulse .95s cubic-bezier(.2,.7,.25,1) both}
+  @keyframes light-pulse{
+    0%{opacity:0;transform:translateY(8px) scale(.985);filter:blur(4px);text-shadow:0 0 0 transparent}
+    53%{opacity:1;transform:translateY(-1px) scale(1.005);filter:blur(0);text-shadow:0 0 6px rgba(255,255,255,.46),0 0 19px rgba(255,255,255,.23)}
+    100%{opacity:1;transform:none;filter:blur(0);text-shadow:0 0 2px rgba(255,255,255,.15),0 0 12px rgba(255,255,255,.07)}
+  }
+  @media(max-width:600px){
+    .page{padding:32px 17px 38px;align-items:flex-start}
+    .quotes{row-gap:24px}
+    .quote{font-size:clamp(15px,3.95vw,18px);line-height:1.6}
+    .language:first-child .quote{font-size:clamp(20px,5.4vw,26px)}
+    .language:nth-child(2) .quote{font-size:clamp(18px,4.9vw,23px)}
+    .language-name{margin-bottom:5px;font-size:10px}
+  }
+  @media(max-height:740px) and (min-width:601px){
+    .page{align-items:flex-start}
+    .quotes{row-gap:20px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .quote,.quotes.fading .quote{transition:none!important;transform:none!important;filter:none!important}
+    .quotes.entering .quote{animation:none!important}
+  }
+  </style>
+</head>
+<body>
+<main class="page">
+<section class="quotes" id="quotes" aria-label="Motivational quotes in nine languages">
+<div class="language" lang="en" dir="ltr"><span class="language-name">ENGLISH</span><p class="quote" data-lang="en">Time will not wait for you. You cannot negotiate with the past. Start now.</p></div>
+<div class="language" lang="ar" dir="rtl"><span class="language-name">العَرَبِيَّة</span><p class="quote" data-lang="ar">الوقت ما راح ينتظرك. ما تكدر تفاوض الماضي. ابدأ هسه.</p></div>
+<div class="language" lang="zh-Hans" dir="ltr"><span class="language-name">中文</span><p class="quote" data-lang="zh">时间不会等你。 你无法和过去讨价还价。 现在就开始。</p></div>
+<div class="language" lang="ja" dir="ltr"><span class="language-name">日本語</span><p class="quote" data-lang="ja">時間はあなたを待ってくれない。 過去と交渉することはできない。 今すぐ始めよう。</p></div>
+<div class="language" lang="tl" dir="ltr"><span class="language-name">FILIPINO</span><p class="quote" data-lang="fil">Hindi hihintay sa iyo ang oras. Hindi mo kayang makipagtawaran sa nakaraan. Magsimula ngayon.</p></div>
+<div class="language" lang="es" dir="ltr"><span class="language-name">ESPAÑOL</span><p class="quote" data-lang="es">El tiempo no te va a esperar. No puedes negociar con el pasado. Empieza ahora.</p></div>
+<div class="language" lang="tr" dir="ltr"><span class="language-name">TÜRKÇE</span><p class="quote" data-lang="tr">Zaman seni beklemez. Geçmişle pazarlık edemezsin. Hemen başla.</p></div>
+<div class="language" lang="th" dir="ltr"><span class="language-name">ภาษาไทย</span><p class="quote" data-lang="th">เวลาไม่เคยรอคุณ คุณต่อรองกับอดีตไม่ได้ เริ่มตอนนี้</p></div>
+<div class="language" lang="vi" dir="ltr"><span class="language-name">TIẾNG VIỆT</span><p class="quote" data-lang="vi">Thời gian sẽ không chờ bạn. Bạn không thể mặc cả với quá khứ. Bắt đầu ngay.</p></div>
+</section>
+</main>
+<script>
+(function(){
+"use strict";
+const order=["en","ar","zh","ja","fil","es","tr","th","vi"];
+const translations={"en":{"label":"ENGLISH","dir":"ltr","a":[["Time will not wait for you.","Every wasted hour is gone forever.","Your life is shrinking by the minute.","No one can buy yesterday back.","The clock keeps moving without permission."],["Tomorrow is the most expensive lie.","Every delay has a hidden price.","Waiting is still a decision.","Perfect conditions do not exist.","The task you avoid grows heavier."],["Discipline begins when motivation disappears.","Your habits write your future.","Consistency beats occasional intensity.","A promise without effort is just noise.","You become what you repeat."],["Your attention is your most valuable currency.","Distraction steals your life quietly.","A busy day is not always a productive day.","Every pointless notification has a cost.","You cannot build much with a scattered mind."],["Ideas cannot replace execution.","Fear becomes stronger every time you retreat.","Nothing changes until your behavior changes.","Comfort can become a beautiful prison.","The future belongs to the choices you make today."]],"b":[["You cannot negotiate with the past.","The moment you waste becomes a permanent loss.","Regret never returns a single second.","Tomorrow will not repair an empty today.","Your hours are worth more than your excuses."],["The first step breaks the trap.","Another excuse will not move you forward.","The opportunity can disappear while you hesitate.","Action beats endless preparation.","Postponement becomes a habit if you let it."],["Show up even on difficult days.","Keep the standard when no one is watching.","Small actions compound into real results.","Do the work before you look for praise.","Build a routine stronger than your mood."],["Protect the hours that matter.","Finish one important thing properly.","Switch off the noise and take control.","Choose your priorities before others do.","Put your energy where it creates change."],["Start before you feel completely ready.","Let your actions speak louder than your plans.","Take a calculated risk instead of standing still.","Progress requires leaving something behind.","Build proof, not another promise."]],"c":["Start now.","Stop making excuses.","Prove it through action.","Make this moment count.","Choose progress today.","Do not postpone the decision.","Do the difficult thing.","Take the first step.","Let your results speak.","Your next move matters."]},"ar":{"label":"العَرَبِيَّة","dir":"rtl","a":[["الوقت ما راح ينتظرك.","كل ساعة تضيعها تروح للأبد.","عمرك ديقل دقيقة ورا دقيقة.","محد يكدر يشتري البارحة ويرجعها.","الساعة تمشي سواء تحركت لو بقيت بمكانك."],["باچر أغلى كذبة تحچيها لنفسك.","كل تأجيل إله ثمن مخفي.","الانتظار هم قرار.","الظروف المثالية ما موجودة.","المهمة اللي تهرب منها تصير أثقل."],["الانضباط يبدأ من يختفي الحماس.","عاداتك هي اللي تكتب مستقبلك.","الاستمرار أقوى من الاندفاع المتقطع.","الوعد بدون جهد مجرد حچي.","إنت تصير نتيجة اللي تكرره."],["انتباهك أغلى عملة عندك.","التشتت يسرق عمرك بهدوء.","مو كل يوم مزدحم يعني يوم منتج.","كل إشعار تافه إله كلفة.","العقل المشتت ما يبني شي كبير."],["الأفكار ما تعوّض التنفيذ.","الخوف يكبر كل مرة تتراجع بيها.","ما يتغير شي إذا ما تغيّر تصرّفك.","الراحة ممكن تصير سجن جميل.","مستقبلك يعتمد على اختياراتك اليوم."]],"b":[["ما تكدر تفاوض الماضي.","اللحظة اللي تضيعها تصير خسارة دائمة.","الندم ما يرجّع ثانية وحدة.","باچر ما يعوّض يوم فارغ اليوم.","ساعاتك أغلى من أعذارك."],["الخطوة الأولى تكسر الفخ.","عذر جديد ما راح يقدّمك.","الفرصة ممكن تختفي وانت متردد.","الفعل أقوى من التحضير اللي ما يخلص.","إذا تسمح للتأجيل يصير عادة."],["التزم حتى بالأيام الصعبة.","حافظ على مستواك حتى من محد يراقبك.","الأفعال الصغيرة تتراكم وتصير نتائج.","اشتغل قبل ما تنتظر المديح.","ابنِ روتين أقوى من مزاجك."],["احمِ الساعات اللي تستحق.","كمّل مهمة مهمة بصورة صحيحة.","طفي الضوضاء وامسك زمام يومك.","حدد أولوياتك قبل ما يحددها غيرك.","وجّه طاقتك للمكان اللي يصنع تغيير."],["ابدأ قبل لا تحس إنك جاهز بالكامل.","خلي أفعالك أعلى صوت من خططك.","خذ مخاطرة محسوبة بدل الوقوف بمكانك.","التقدم يحتاج تترك شي وراك.","ابنِ دليل على شغلك مو وعد جديد."]],"c":["ابدأ هسه.","بطل أعذار.","اثبتها بالفعل.","خلّي هاللحظة إلها قيمة.","اختار التقدم اليوم.","لا تأجل القرار.","سوّ الشي الصعب.","خذ أول خطوة.","خلّي نتائجك تحچي.","خطوتك الجاية تفرق."]},"zh":{"label":"中文","dir":"ltr","a":[["时间不会等你。","浪费掉的每一小时都永远回不来。","你的生命正一分一秒地流逝。","没有人能买回昨天。","时钟不会征求你的同意就停下。"],["“明天再说”是代价最昂贵的谎言。","每一次拖延都有隐藏的代价。","等待本身也是一种决定。","完美的条件并不存在。","你逃避的任务只会越来越沉重。"],["自律始于动力消失的那一刻。","你的习惯正在书写你的未来。","持续坚持胜过偶尔拼命。","没有努力的承诺只是空话。","你反复做什么，就会成为什么样的人。"],["注意力是你最宝贵的财富。","分心会悄悄偷走你的人生。","忙碌的一天不一定有成果。","每一条无意义的通知都有代价。","心思散乱就很难成就大事。"],["想法无法代替执行。","每退缩一次，恐惧就更强一点。","行为不变，生活就不会改变。","舒适可能变成一座美丽的牢笼。","未来取决于你今天做出的选择。"]],"b":[["你无法和过去讨价还价。","被你浪费的瞬间会成为永久的损失。","后悔换不回哪怕一秒钟。","明天无法弥补空白的今天。","你的时间比借口更值钱。"],["迈出第一步就能打破困局。","再多一个借口也不会让你前进。","机会可能在你犹豫时消失。","行动胜过无休止的准备。","放任拖延，它就会成为习惯。"],["即使在艰难的日子也要坚持。","即使没人看见，也要保持标准。","微小的行动会积累成真正的成果。","先做事，再期待掌声。","建立比情绪更坚定的习惯。"],["守住真正重要的时间。","认真完成一件重要的事。","关掉噪音，拿回主动权。","在别人替你决定前明确自己的优先事项。","把精力用在能带来改变的地方。"],["不要等到完全准备好才开始。","让行动比计划更有说服力。","与其停滞，不如承担可控的风险。","前进意味着舍弃一些东西。","拿出成果，而不是另一个承诺。"]],"c":["现在就开始。","停止找借口。","用行动证明。","让这一刻有价值。","今天就选择进步。","别再推迟决定。","去做困难的事。","迈出第一步。","让成果替你说话。","你的下一步很重要。"]},"ja":{"label":"日本語","dir":"ltr","a":[["時間はあなたを待ってくれない。","無駄にした一時間は二度と戻らない。","人生は一分ごとに短くなっている。","昨日を買い戻すことは誰にもできない。","時計はあなたの許可を待たずに進み続ける。"],["「明日やる」は最も高くつく嘘だ。","先延ばしには必ず見えない代償がある。","待つことも一つの決断だ。","完璧な条件など存在しない。","逃げている仕事はますます重くなる。"],["やる気が消えたときこそ自律が始まる。","習慣があなたの未来をつくる。","たまの全力より日々の継続が強い。","努力のない約束はただの雑音だ。","繰り返す行動があなた自身を形づくる。"],["集中力は最も貴重な資産だ。","気の散りは静かに人生を奪う。","忙しい一日が実りある一日とは限らない。","無意味な通知にも代償がある。","心が散っていては大きなものを築けない。"],["アイデアは実行の代わりにならない。","逃げるたびに恐怖は大きくなる。","行動を変えなければ何も変わらない。","快適さは美しい牢獄になり得る。","未来は今日の選択で決まる。"]],"b":[["過去と交渉することはできない。","無駄にした瞬間は永遠の損失になる。","後悔しても一秒たりとも戻らない。","明日になっても空白の今日を埋められない。","あなたの時間は言い訳より価値がある。"],["最初の一歩が停滞を破る。","言い訳を重ねても前には進めない。","ためらう間にチャンスは消える。","行動は終わりのない準備に勝る。","先延ばしを許せば習慣になる。"],["つらい日にも行動を続けよう。","誰も見ていなくても基準を守ろう。","小さな行動が確かな結果を生む。","称賛を求める前に仕事をしよう。","気分に左右されない習慣をつくろう。"],["大切な時間を守ろう。","重要なことを一つ、きちんと終わらせよう。","雑音を消して主導権を取り戻そう。","他人に決められる前に優先順位を決めよう。","変化を生む場所に力を注ごう。"],["完璧に準備できる前に始めよう。","計画より行動で示そう。","立ち止まるより計算した挑戦を選ぼう。","前進には何かを手放す必要がある。","新しい約束より実績を残そう。"]],"c":["今すぐ始めよう。","言い訳をやめよう。","行動で証明しよう。","この瞬間を無駄にするな。","今日、前進を選ぼう。","決断を先延ばしにするな。","難しいことに挑もう。","最初の一歩を踏み出そう。","結果で語ろう。","次の一手が大切だ。"]},"fil":{"label":"FILIPINO","dir":"ltr","a":[["Hindi hihintay sa iyo ang oras.","Ang bawat oras na nasayang ay hindi na maibabalik.","Bawat minuto ay nababawasan ang panahon ng buhay mo.","Walang makakabili para maibalik ang kahapon.","Tuloy-tuloy ang takbo ng orasan kahit hindi ka handa."],["Ang “bukas na lang” ay isang napakamahal na kasinungalingan.","May nakatagong kapalit ang bawat pagpapaliban.","Ang paghihintay ay isa ring desisyon.","Walang perpektong kondisyon.","Lalong bumibigat ang gawaing iniiwasan mo."],["Nagsisimula ang disiplina kapag nawawala ang gana.","Ang mga nakasanayan mo ang humuhubog sa kinabukasan mo.","Mas malakas ang tuloy-tuloy na pagsisikap kaysa paminsang bugso.","Ingay lang ang pangakong walang pagsisikap.","Nagiging bahagi mo ang paulit-ulit mong ginagawa."],["Ang atensyon mo ang pinakamahalaga mong yaman.","Tahimik na ninanakaw ng distraksiyon ang buhay mo.","Hindi ibig sabihing produktibo ang isang abalang araw.","May kapalit ang bawat walang-kuwentang notipikasyon.","Mahirap bumuo ng malaking bagay kung watak-watak ang isip mo."],["Hindi kapalit ng paggawa ang mga ideya.","Lalong lumalakas ang takot sa bawat pag-atras mo.","Walang magbabago hangga’t hindi mo binabago ang kilos mo.","Maaaring maging magandang kulungan ang kaginhawaan.","Nakasalalay sa mga pinili mo ngayon ang kinabukasan mo."]],"b":[["Hindi mo kayang makipagtawaran sa nakaraan.","Ang sandaling sinayang mo ay permanenteng pagkawala.","Hindi maibabalik ng pagsisisi kahit isang segundo.","Hindi mababawi ng bukas ang isang walang-lamang araw ngayon.","Mas mahalaga ang oras mo kaysa sa mga dahilan mo."],["Binabasag ng unang hakbang ang pagkakabihag.","Hindi ka uusad dahil sa isa pang palusot.","Puwedeng mawala ang pagkakataon habang nag-aalinlangan ka.","Mas mahalaga ang kilos kaysa walang-katapusang paghahanda.","Nagiging ugali ang pagpapaliban kapag hinayaan mo."],["Magpatuloy kahit sa mahihirap na araw.","Panatilihin ang pamantayan kahit walang nakatingin.","Nagiging tunay na resulta ang maliliit na hakbang.","Gawin muna ang trabaho bago umasa sa papuri.","Bumuo ng rutinang mas matatag kaysa sa mood mo."],["Ingatan ang mga oras na mahalaga.","Tapusin nang maayos ang isang mahalagang gawain.","Patayin ang ingay at bawiin ang kontrol.","Unahin ang prayoridad mo bago iba ang pumili para sa iyo.","Ilaan ang lakas sa mga bagay na may pagbabago."],["Magsimula bago mo maramdamang handang-handa ka.","Hayaang mas malakas magsalita ang kilos kaysa plano.","Makipagsapalaran nang may pag-iingat kaysa manatiling nakatigil.","May kailangang bitawan para umusad.","Magpakita ng ebidensya, hindi panibagong pangako."]],"c":["Magsimula ngayon.","Tigilan ang mga palusot.","Patunayan sa gawa.","Gawing mahalaga ang sandaling ito.","Piliing umusad ngayon.","Huwag ipagpaliban ang desisyon.","Gawin ang mahirap.","Gawin ang unang hakbang.","Hayaang resulta ang magsalita.","Mahalaga ang susunod mong hakbang."]},"es":{"label":"ESPAÑOL","dir":"ltr","a":[["El tiempo no te va a esperar.","Cada hora desperdiciada se pierde para siempre.","Tu vida se acorta minuto a minuto.","Nadie puede comprar de vuelta el ayer.","El reloj sigue avanzando sin pedir permiso."],["«Mañana» es la mentira más cara.","Cada retraso tiene un precio oculto.","Esperar también es una decisión.","Las condiciones perfectas no existen.","La tarea que evitas se vuelve más pesada."],["La disciplina empieza cuando desaparece la motivación.","Tus hábitos escriben tu futuro.","La constancia vence a la intensidad ocasional.","Una promesa sin esfuerzo es solo ruido.","Te conviertes en lo que repites."],["Tu atención es tu recurso más valioso.","Las distracciones te roban la vida en silencio.","Un día ocupado no siempre es un día productivo.","Cada notificación inútil tiene un precio.","No puedes construir mucho con la mente dispersa."],["Las ideas no sustituyen a la ejecución.","El miedo crece cada vez que retrocedes.","Nada cambia hasta que cambias tu conducta.","La comodidad puede convertirse en una hermosa prisión.","El futuro depende de las decisiones que tomas hoy."]],"b":[["No puedes negociar con el pasado.","El momento que desperdicias se convierte en una pérdida definitiva.","El arrepentimiento no devuelve ni un segundo.","Mañana no reparará un hoy vacío.","Tus horas valen más que tus excusas."],["El primer paso rompe la trampa.","Otra excusa no te hará avanzar.","La oportunidad puede desaparecer mientras dudas.","La acción supera a la preparación interminable.","Aplazarlo se convierte en costumbre si lo permites."],["Cumple incluso en los días difíciles.","Mantén tus estándares aunque nadie te vea.","Las pequeñas acciones se acumulan hasta dar resultados reales.","Haz el trabajo antes de buscar aplausos.","Construye una rutina más fuerte que tu estado de ánimo."],["Protege las horas que importan.","Termina bien una cosa importante.","Apaga el ruido y recupera el control.","Define tus prioridades antes de que otros lo hagan.","Pon tu energía donde pueda producir cambios."],["Empieza antes de sentirte totalmente preparado.","Deja que tus actos hablen más alto que tus planes.","Asume un riesgo calculado en vez de quedarte quieto.","Avanzar exige dejar algo atrás.","Presenta hechos, no otra promesa."]],"c":["Empieza ahora.","Deja las excusas.","Demuéstralo con hechos.","Haz que este momento cuente.","Elige avanzar hoy.","No aplaces la decisión.","Haz lo difícil.","Da el primer paso.","Deja que hablen tus resultados.","Tu siguiente paso importa."]},"tr":{"label":"TÜRKÇE","dir":"ltr","a":[["Zaman seni beklemez.","Boşa harcanan her saat sonsuza dek kaybolur.","Ömrün her dakika biraz daha kısalıyor.","Dünü geri satın alamazsın.","Saat senden izin almadan ilerlemeye devam eder."],["“Yarın” en pahalı yalandır.","Her ertelemenin gizli bir bedeli vardır.","Beklemek de bir karardır.","Mükemmel koşullar diye bir şey yoktur.","Kaçtığın iş giderek ağırlaşır."],["Disiplin, motivasyon kaybolduğunda başlar.","Alışkanlıkların geleceğini yazar.","İstikrar, arada bir gösterilen aşırı çabadan güçlüdür.","Emeksiz bir söz yalnızca gürültüdür.","Tekrarladığın şey seni şekillendirir."],["Dikkatin en değerli sermayendir.","Dikkat dağınıklığı hayatını sessizce çalar.","Yoğun geçen her gün verimli değildir.","Her gereksiz bildirimin bir bedeli vardır.","Dağınık bir zihinle büyük bir şey inşa edemezsin."],["Fikirler uygulamanın yerini tutmaz.","Her geri çekilişinde korku biraz daha büyür.","Davranışın değişmeden hiçbir şey değişmez.","Konfor güzel bir hapishaneye dönüşebilir.","Geleceğin bugün verdiğin kararlara bağlıdır."]],"b":[["Geçmişle pazarlık edemezsin.","Boşa harcadığın an kalıcı bir kayba dönüşür.","Pişmanlık bir saniyeyi bile geri getirmez.","Yarın, boş geçen bugünü telafi etmez.","Saatlerin mazeretlerinden daha değerlidir."],["İlk adım tuzağı bozar.","Bir mazeret daha seni ileri götürmez.","Sen tereddüt ederken fırsat kaybolabilir.","Eylem, bitmeyen hazırlıktan üstündür.","İzin verirsen ertelemek alışkanlığa dönüşür."],["Zor günlerde bile ortaya çık.","Kimse bakmıyorken de standartlarını koru.","Küçük eylemler birikip gerçek sonuçlar doğurur.","Alkış beklemeden önce işini yap.","Ruh halinden daha güçlü bir düzen kur."],["Önemli saatlerini koru.","Önemli bir işi düzgünce bitir.","Gürültüyü kapat ve kontrolü geri al.","Önceliklerini başkaları belirlemeden sen belirle.","Enerjini değişim yaratacak yere ver."],["Tamamen hazır hissetmeden başla.","Eylemlerin planlarından daha yüksek sesle konuşsun.","Yerinde saymak yerine hesaplı risk al.","İlerlemek bazı şeyleri geride bırakmayı gerektirir.","Yeni bir vaat değil, kanıt üret."]],"c":["Hemen başla.","Mazeret üretmeyi bırak.","Eyleminle kanıtla.","Bu anı değerlendir.","Bugün ilerlemeyi seç.","Kararı erteleme.","Zor olanı yap.","İlk adımı at.","Sonuçların konuşsun.","Sonraki adımın önemli."]},"th":{"label":"ภาษาไทย","dir":"ltr","a":[["เวลาไม่เคยรอคุณ","ทุกชั่วโมงที่เสียไปจะไม่มีวันย้อนกลับมา","ชีวิตของคุณสั้นลงทุกนาที","ไม่มีใครซื้อเมื่อวานกลับคืนมาได้","นาฬิกาเดินต่อไปโดยไม่ขออนุญาตคุณ"],["คำว่า “พรุ่งนี้ค่อยทำ” คือคำโกหกที่มีราคาแพงที่สุด","ทุกการผัดวันประกันพรุ่งมีต้นทุนแฝง","การรอก็คือการตัดสินใจอย่างหนึ่ง","ไม่มีสภาพแวดล้อมใดสมบูรณ์แบบ","งานที่คุณหลีกเลี่ยงจะยิ่งหนักขึ้น"],["วินัยเริ่มต้นเมื่อแรงจูงใจหมดไป","นิสัยของคุณกำลังเขียนอนาคตของคุณ","ความสม่ำเสมอชนะความทุ่มเทเป็นครั้งคราว","คำสัญญาที่ไม่มีความพยายามเป็นเพียงเสียงเปล่า","สิ่งที่คุณทำซ้ำจะหล่อหลอมตัวคุณ"],["ความใส่ใจคือทรัพย์สินที่มีค่าที่สุดของคุณ","สิ่งรบกวนกำลังขโมยชีวิตคุณไปอย่างเงียบ ๆ","วันที่ยุ่งไม่ได้แปลว่าเป็นวันที่มีผลงานเสมอไป","การแจ้งเตือนที่ไร้สาระทุกครั้งมีต้นทุน","จิตใจที่วอกแวกสร้างสิ่งยิ่งใหญ่ได้ยาก"],["ความคิดแทนการลงมือทำไม่ได้","ทุกครั้งที่ถอยหนี ความกลัวจะยิ่งแข็งแกร่งขึ้น","ไม่มีอะไรเปลี่ยนจนกว่าพฤติกรรมของคุณจะเปลี่ยน","ความสบายอาจกลายเป็นคุกที่สวยงาม","อนาคตขึ้นอยู่กับการตัดสินใจของคุณในวันนี้"]],"b":[["คุณต่อรองกับอดีตไม่ได้","ช่วงเวลาที่คุณทำสูญเปล่าจะกลายเป็นความสูญเสียถาวร","ความเสียใจไม่อาจคืนเวลาแม้แต่วินาทีเดียว","วันพรุ่งนี้ชดเชยวันนี้ที่ว่างเปล่าไม่ได้","ชั่วโมงของคุณมีค่ากว่าข้ออ้าง"],["ก้าวแรกจะทำลายกับดักนั้น","ข้ออ้างอีกข้อไม่ได้พาคุณไปข้างหน้า","โอกาสอาจหายไปขณะที่คุณลังเล","การลงมือทำดีกว่าการเตรียมตัวไม่รู้จบ","การผลัดวันจะกลายเป็นนิสัยหากคุณปล่อยไว้"],["ลงมือทำแม้ในวันที่ยากลำบาก","รักษามาตรฐานแม้ไม่มีใครมอง","การกระทำเล็ก ๆ สะสมเป็นผลลัพธ์ที่แท้จริง","ทำงานให้เสร็จก่อนรอเสียงปรบมือ","สร้างกิจวัตรที่แข็งแกร่งกว่าอารมณ์ของคุณ"],["ปกป้องชั่วโมงที่สำคัญ","ทำสิ่งสำคัญหนึ่งอย่างให้เสร็จอย่างดี","ปิดเสียงรบกวนแล้วกลับมาควบคุมชีวิต","กำหนดสิ่งสำคัญก่อนที่คนอื่นจะกำหนดให้","ทุ่มพลังให้กับสิ่งที่สร้างการเปลี่ยนแปลง"],["เริ่มก่อนที่จะรู้สึกว่าพร้อมเต็มที่","ให้การกระทำพูดดังกว่าแผนการ","ยอมเสี่ยงอย่างรอบคอบแทนการหยุดนิ่ง","ความก้าวหน้าต้องยอมทิ้งบางสิ่งไว้ข้างหลัง","สร้างผลงานเป็นหลักฐาน ไม่ใช่แค่คำสัญญา"]],"c":["เริ่มตอนนี้","เลิกหาข้ออ้าง","พิสูจน์ด้วยการกระทำ","ทำให้ช่วงเวลานี้มีความหมาย","เลือกก้าวหน้าในวันนี้","อย่าผัดการตัดสินใจ","ทำสิ่งที่ยาก","ก้าวแรกให้ได้","ให้ผลลัพธ์พูดแทน","ก้าวต่อไปของคุณสำคัญ"]},"vi":{"label":"TIẾNG VIỆT","dir":"ltr","a":[["Thời gian sẽ không chờ bạn.","Mỗi giờ lãng phí đều mất đi mãi mãi.","Cuộc đời bạn đang ngắn lại từng phút.","Không ai có thể mua lại ngày hôm qua.","Đồng hồ vẫn chạy mà không cần bạn cho phép."],["“Để ngày mai” là lời nói dối đắt giá nhất.","Mỗi lần trì hoãn đều có cái giá âm thầm.","Chờ đợi cũng là một quyết định.","Không có điều kiện nào hoàn hảo.","Việc bạn né tránh sẽ ngày càng nặng nề."],["Kỷ luật bắt đầu khi động lực biến mất.","Thói quen đang viết nên tương lai của bạn.","Sự bền bỉ thắng những đợt bùng nổ nhất thời.","Lời hứa không có nỗ lực chỉ là tiếng ồn.","Bạn trở thành điều mình lặp lại mỗi ngày."],["Sự tập trung là tài sản quý giá nhất của bạn.","Xao nhãng âm thầm đánh cắp cuộc đời bạn.","Một ngày bận rộn chưa chắc là một ngày hiệu quả.","Mọi thông báo vô nghĩa đều có cái giá của nó.","Tâm trí phân tán khó tạo nên điều lớn lao."],["Ý tưởng không thể thay thế hành động.","Mỗi lần lùi bước, nỗi sợ lại lớn hơn.","Không gì thay đổi nếu hành vi của bạn không đổi.","Sự thoải mái có thể trở thành nhà tù đẹp đẽ.","Tương lai phụ thuộc vào lựa chọn hôm nay của bạn."]],"b":[["Bạn không thể mặc cả với quá khứ.","Khoảnh khắc bị lãng phí trở thành mất mát vĩnh viễn.","Hối tiếc không lấy lại nổi một giây.","Ngày mai không bù đắp được hôm nay trống rỗng.","Thời gian của bạn đáng giá hơn mọi lời bào chữa."],["Bước đầu tiên sẽ phá vỡ cái bẫy.","Thêm một lời bào chữa không giúp bạn tiến lên.","Cơ hội có thể biến mất khi bạn còn do dự.","Hành động hơn hẳn chuẩn bị không hồi kết.","Trì hoãn sẽ thành thói quen nếu bạn cho phép."],["Vẫn xuất hiện và làm việc trong những ngày khó khăn.","Giữ tiêu chuẩn ngay cả khi không ai nhìn thấy.","Hành động nhỏ tích lũy thành kết quả thật.","Làm việc trước khi mong được khen.","Xây dựng nề nếp mạnh hơn cảm xúc của bạn."],["Bảo vệ những giờ phút quan trọng.","Hoàn thành thật tốt một việc quan trọng.","Tắt tiếng ồn và giành lại quyền kiểm soát.","Tự đặt ưu tiên trước khi người khác quyết định thay.","Dồn năng lượng vào nơi tạo ra thay đổi."],["Bắt đầu trước khi bạn thấy mình hoàn toàn sẵn sàng.","Hãy để hành động nói lớn hơn kế hoạch.","Chấp nhận rủi ro có tính toán thay vì đứng yên.","Tiến bộ đòi hỏi phải bỏ lại một số thứ.","Hãy tạo bằng chứng, đừng chỉ hứa thêm."]],"c":["Bắt đầu ngay.","Đừng viện cớ nữa.","Chứng minh bằng hành động.","Đừng lãng phí khoảnh khắc này.","Hãy chọn tiến bộ hôm nay.","Đừng trì hoãn quyết định.","Làm việc khó.","Bước bước đầu tiên.","Để kết quả lên tiếng.","Bước tiếp theo của bạn rất quan trọng."]}};
+const QUOTE_COUNT=1250;
+const container=document.getElementById("quotes");
+const nodes=Object.fromEntries(order.map(lang=>[lang,document.querySelector('[data-lang="'+lang+'"]')]));
+const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)");
+const storeKey="mx-words-shuffle-v1";
+let bag=[],position=0,last=-1,busy=false;
+function refill(previous){
+  bag=Array.from({length:QUOTE_COUNT},(_,i)=>i);
+  for(let i=bag.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [bag[i],bag[j]]=[bag[j],bag[i]];
+  }
+  if(previous===bag[0]&&bag.length>1)[bag[0],bag[1]]=[bag[1],bag[0]];
+  position=0;
+}
+function restore(){
+  try{
+    const s=JSON.parse(sessionStorage.getItem(storeKey)||"null");
+    if(s&&Array.isArray(s.bag)&&s.bag.length===QUOTE_COUNT
+    &&Number.isInteger(s.position)&&s.position>=0&&s.position<=QUOTE_COUNT
+    &&new Set(s.bag).size===QUOTE_COUNT
+    &&s.bag.every(n=>Number.isInteger(n)&&n>=0&&n<QUOTE_COUNT)){
+      bag=s.bag;position=s.position;last=Number.isInteger(s.last)?s.last:-1;
+    }
+  }catch(e){}
+}
+function remember(){
+  try{sessionStorage.setItem(storeKey,JSON.stringify({bag,position,last}));}catch(e){}
+}
+function render(index){
+  const group=Math.floor(index/250);
+  const within=index%250;
+  const start=Math.floor(within/50);
+  const support=Math.floor((within%50)/10);
+  const finish=within%10;
+  order.forEach(lang=>{
+    const t=translations[lang];
+    nodes[lang].textContent=t.a[group][start]+" "+t.b[group][support]+" "+t.c[finish];
+  });
+}
+function next(){
+  if(position>=bag.length)refill(last);
+  let index=bag[position++];
+  if(index===last){
+    if(position<bag.length){[bag[position-1],bag[position]]=[bag[position],bag[position-1]];index=bag[position-1];}
+    else{refill(last);index=bag[position++];}
+  }
+  last=index;
+  render(index);
+  remember();
+}
+restore();
+if(bag.length!==QUOTE_COUNT)refill(last);
+next();
+function rotate(){
+  if(busy||document.hidden)return;
+  if(reduceMotion.matches){next();return;}
+  busy=true;
+  container.classList.remove("entering");
+  container.classList.add("fading");
+  window.setTimeout(()=>{
+    next();
+    container.classList.remove("fading");
+    void container.offsetWidth;
+    container.classList.add("entering");
+    window.setTimeout(()=>{container.classList.remove("entering");busy=false;},960);
+  },490);
+}
+window.setInterval(rotate,30000);
+})();
+</script>
+</body>
+</html>
