@@ -1,1 +1,31 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><rect width="128" height="128" rx="28" fill="#000"/><path d="M19 32 35 98h14l15-42 15 42h14l16-66H95L85 79 70 39H57L43 79 33 32Z" fill="#fff"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="MX Life — colorful words">
+<defs>
+  <linearGradient id="skyrose" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#ff79bd"/>
+    <stop offset="37%" stop-color="#ffa5d6"/>
+    <stop offset="73%" stop-color="#90d9ff"/>
+    <stop offset="100%" stop-color="#54bafd"/>
+  </linearGradient>
+  <linearGradient id="letters" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#ee66b8"/>
+    <stop offset="48%" stop-color="#ac8df7"/>
+    <stop offset="100%" stop-color="#67b8f5"/>
+  </linearGradient>
+  <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#fff" stop-opacity=".35"/>
+    <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+<rect width="128" height="128" rx="29" fill="url(#skyrose)"/>
+<rect x="3" y="3" width="122" height="122" rx="26" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width="2"/>
+<path d="M12 32C12 20 23 10 35 10H99C111 10 118 18 118 31V37C84 30 51 42 12 62Z" fill="url(#glass)"/>
+<circle cx="64" cy="61" r="48" fill="none" stroke="#fff" stroke-opacity=".20" stroke-width="1.5"/>
+<path d="M37 28H91C102 28 109 36 109 46V75C109 85 102 92 91 92H67L48 107V92H37C26 92 19 85 19 75V46C19 36 26 28 37 28Z" fill="#fff" fill-opacity=".96"/>
+<path d="M37 29H91C101 29 108 36 108 46" fill="none" stroke="#fff" stroke-opacity=".65" stroke-width="2"/>
+<g fill="url(#letters)">
+  <path d="M50 46C43 50 40 56 40 64V77H59V59H51C51 54 54 51 58 49L56 43C54 44 52 45 50 46Z"/>
+  <path d="M75 46C68 50 65 56 65 64V77H84V59H76C76 54 79 51 83 49L81 43C79 44 77 45 75 46Z"/>
+</g>
+<path d="M102 13L104.7 20.3 112 23 104.7 25.7 102 33 99.3 25.7 92 23 99.3 20.3Z" fill="#fff" fill-opacity=".78"/>
+<circle cx="18" cy="100" r="2.1" fill="#fff" fill-opacity=".64"/>
+</svg>
