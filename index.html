@@ -123,15 +123,15 @@
 .quote[data-lang="he"]{color:#f5b9f0;}
 .language[lang="he"] .quote{direction:rtl;unicode-bidi:plaintext;}
 
-/* MX LIFE signature — cinematic platinum, pink and cyan, real light passes on letters.
-   Hardware-transform beam + frame-driven clip prevent frozen Mobile Safari/PWA animations. */
+/* MX Life · cinematic jewel-metal radiance from the LETTERS ONLY.
+   No sweeping white bars, no moving rectangles, no left-to-right wipe. */
 .page{flex-direction:column;align-items:center;justify-content:flex-start;gap:clamp(30px,4.5vw,52px)}
 .site-brand{
   position:relative;
   display:inline-grid;
   grid-template-columns:minmax(0,1fr);
-  align-self:center;
   flex:none;
+  align-self:center;
   max-width:100%;
   margin:0;
   padding:5px 9px;
@@ -140,107 +140,118 @@
   text-align:center;
   white-space:normal;
   text-wrap:balance;
-  isolation:isolate;
   user-select:none;
+  isolation:isolate;
   overflow:visible;
   transform:translate3d(0,0,0);
   -webkit-transform:translate3d(0,0,0);
   backface-visibility:hidden;
   -webkit-backface-visibility:hidden;
+  will-change:transform;
 }
 .brand-text,.brand-flash{
-  grid-area:1 / 1;
+  grid-area:1/1;
   display:block;
   position:relative;
+  min-width:0;
   font:inherit;
   letter-spacing:inherit;
   line-height:inherit;
   text-align:inherit;
   white-space:inherit;
   overflow-wrap:normal;
-  min-width:0;
 }
 .brand-text{
   z-index:1;
-  color:#fff;
-  background:linear-gradient(114deg,
-    #faffff 0%,#abb9d2 10%,#ffffff 19%,
-    #ffd0ee 30%,#f5ffff 37%,#8ddfff 50%,
-    #ffffff 62%,#ffb5db 76%,#d5e8ff 89%,#ffffff 100%);
+  color:#f8fcff;
+  background:linear-gradient(113deg,
+    #bdc7d5 0%,#faffff 10%,#ffd5ed 22%,
+    #f9fbff 33%,#8fd8ff 44%,#ffffff 53%,
+    #c1cada 63%,#ffafdb 77%,#b6e4ff 89%,#ffffff 100%);
   -webkit-background-clip:text;
   background-clip:text;
   -webkit-text-fill-color:transparent;
-  text-shadow:0 0 3px rgba(255,255,255,.15);
-  filter:drop-shadow(0 0 5px rgba(255,245,255,.68))
-         drop-shadow(0 0 15px rgba(113,200,255,.42));
+  /* Luminous etched letters; all highlights stay inside letter shapes. */
+  filter:drop-shadow(0 0 3px rgba(255,255,255,.82))
+         drop-shadow(0 0 10px rgba(255,181,226,.40))
+         drop-shadow(0 0 17px rgba(123,206,255,.40));
 }
 .brand-flash{
-  z-index:4;
+  z-index:2;
   pointer-events:none;
-  color:#fff;
-  -webkit-text-fill-color:#fff;
-  text-shadow:0 0 4px rgba(255,255,255,.95),
-              0 0 10px rgba(255,255,255,.9),
-              0 0 19px rgba(255,183,232,.8),
-              0 0 30px rgba(107,208,255,.68);
-  clip-path:polygon(-23% 0,-8% 0,-8% 100%,-23% 100%);
-  -webkit-clip-path:polygon(-23% 0,-8% 0,-8% 100%,-23% 100%);
-  will-change:clip-path;
+  color:#f5faff;
+  background:linear-gradient(110deg,
+    #fff 0%,#fbedfa 20%,#fff 38%,
+    #c5efff 58%,#fff 79%,#fbd0f3 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 4px rgba(255,255,255,.95))
+         drop-shadow(0 0 11px rgba(255,220,248,.92))
+         drop-shadow(0 0 20px rgba(110,205,255,.77))
+         drop-shadow(0 0 30px rgba(255,150,212,.32));
+  opacity:.36;
+  will-change:opacity;
 }
 .brand-aura{
-  z-index:-1;position:absolute;pointer-events:none;
-  inset:-13px -19px;
+  z-index:-1;
+  position:absolute;
+  pointer-events:none;
+  inset:-19px -24px;
+  border-radius:50%;
   background:radial-gradient(ellipse at center,
-     rgba(255,205,244,.45) 0%,rgba(159,215,255,.34) 25%,
-     rgba(138,140,245,.09) 57%,transparent 82%);
+    rgba(255,202,236,.34) 0%,
+    rgba(162,217,255,.28) 29%,
+    rgba(177,165,250,.09) 57%,transparent 81%);
   filter:blur(11px);
-  opacity:.66;
+  opacity:.72;
   transform:translate3d(0,0,0);
   will-change:opacity;
 }
-.brand-beam{
-  position:absolute;z-index:3;top:-37%;bottom:-37%;
-  left:0;width:17%;
-  pointer-events:none;opacity:.88;
-  background:linear-gradient(90deg,transparent 0%,
-     rgba(255,255,255,.07) 18%,
-     rgba(255,255,255,.49) 43%,
-     rgba(255,255,255,.92) 50%,
-     rgba(142,217,255,.53) 63%,transparent 100%);
-  transform:translate3d(-170%,0,0) skewX(-16deg);
-  filter:blur(5px);
-  mix-blend-mode:screen;
-  will-change:transform,opacity;
+/* Simple fallback loops for browsers without a frame-timing engine. */
+.site-brand:not(.brand-live){animation:mx-signature-soft-breathe 4s ease-in-out infinite}
+.site-brand:not(.brand-live) .brand-flash{animation:mx-signature-facet-light 3.3s ease-in-out infinite}
+.site-brand:not(.brand-live) .brand-aura{animation:mx-signature-aura 5.1s ease-in-out infinite}
+@keyframes mx-signature-soft-breathe{
+  0%,100%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(0,0,0) scale(1.025)}
 }
-.brand-spark{
-  position:absolute;z-index:5;
-  left:0;top:50%;pointer-events:none;
-  color:#fff;
-  font:400 12px/1 Arial,sans-serif;
-  text-shadow:0 0 6px #fff,0 0 13px #ffb3e4,0 0 21px #87daff;
-  opacity:0;
-  transform:translate3d(-20px,-50%,0) scale(.7);
-  will-change:transform,opacity;
+@keyframes mx-signature-facet-light{
+  0%,100%{opacity:.17}
+  40%{opacity:.91}
+  68%{opacity:.32}
 }
-/* If scripts are unavailable, still sweep the lit area repeatedly using a compositor transform. */
-.site-brand:not(.brand-live) .brand-beam{
-  animation:brand-beam-fallback 3.5s linear infinite;
-  -webkit-animation:brand-beam-fallback 3.5s linear infinite;
+@keyframes mx-signature-aura{
+  0%,100%{opacity:.56}
+  50%{opacity:1}
 }
-@keyframes brand-beam-fallback{
-  from{transform:translate3d(-180%,0,0) skewX(-16deg)}
-  to{transform:translate3d(650%,0,0) skewX(-16deg)}
+@-webkit-keyframes mx-signature-soft-breathe{
+  0%,100%{-webkit-transform:translate3d(0,0,0) scale(1)}
+  50%{-webkit-transform:translate3d(0,0,0) scale(1.025)}
 }
-@-webkit-keyframes brand-beam-fallback{
-  from{-webkit-transform:translate3d(-180%,0,0) skewX(-16deg)}
-  to{-webkit-transform:translate3d(650%,0,0) skewX(-16deg)}
+@-webkit-keyframes mx-signature-facet-light{
+  0%,100%{opacity:.17}
+  40%{opacity:.91}
+  68%{opacity:.32}
+}
+@-webkit-keyframes mx-signature-aura{
+  0%,100%{opacity:.56}
+  50%{opacity:1}
 }
 @media(max-width:600px){
   .page{gap:clamp(26px,7vw,38px)}
   .site-brand{font-size:clamp(13px,3.55vw,16px);letter-spacing:0}
-  .brand-beam{filter:blur(3px)}
 }
-/* In reduced-motion mode, don't scale the whole wordmark; the local light glint still moves. */
+@media(prefers-reduced-motion:reduce){
+  .site-brand:not(.brand-live),
+  .site-brand:not(.brand-live) .brand-flash,
+  .site-brand:not(.brand-live) .brand-aura{
+    animation:none!important;
+    -webkit-animation:none!important;
+  }
+  .site-brand{will-change:auto}
+  .brand-flash{opacity:.22}
+}
 
 /* Brand and device-specific, native-capable install action. */
 .app-header{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;width:100%}
@@ -272,8 +283,6 @@
   <span class="brand-aura" aria-hidden="true"></span>
   <span class="brand-text" aria-hidden="true">Stay a Juggernaut with MazenmiX</span>
   <span class="brand-flash" aria-hidden="true">Stay a Juggernaut with MazenmiX</span>
-  <span class="brand-beam" aria-hidden="true"></span>
-  <span class="brand-spark" aria-hidden="true">✦</span>
 </div>
 <button id="install-app" type="button" class="install-app" aria-label="Install MX Life on this device">
 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v3h14v-3"/></svg><span>Install it now</span>
@@ -453,62 +462,58 @@ if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.ser
 
 (function(){
 "use strict";
-const root=document.querySelector(".site-brand");
-const lit=root&&root.querySelector(".brand-flash");
-const beam=root&&root.querySelector(".brand-beam");
-const aura=root&&root.querySelector(".brand-aura");
-const sparkle=root&&root.querySelector(".brand-spark");
-if(!root||!lit||!beam||!aura||!sparkle)return;
-root.classList.add("brand-live");
-const reduced=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const CYCLE=3650;
-let request=0;
-let fallback=0;
-let last=0;
-let active=true;
-const start=(window.performance&&performance.now)?performance.now():Date.now();
-function frame(time){
- const tick=typeof time==="number"?time:Date.now();
- if(document.hidden){active=false;request=0;return;}
- const p=(((tick-start)%CYCLE)+CYCLE)%CYCLE/CYCLE;
- const left=-23+p*149;
- const right=left+17;
- const clip="polygon("+left.toFixed(2)+"% 0%, "+right.toFixed(2)+"% 0%, "+right.toFixed(2)+"% 100%, "+left.toFixed(2)+"% 100%)";
- lit.style.clipPath=clip;
- lit.style.webkitClipPath=clip;
- const w=root.clientWidth||280;
- const beamX=(-0.22+p*1.49)*w;
- beam.style.transform="translate3d("+beamX.toFixed(1)+"px,0,0) skewX(-16deg)";
- const bright=Math.pow(Math.max(0,1-Math.abs(p-.52)*5.5),2);
- beam.style.opacity=String((.52+bright*.48).toFixed(3));
- const pulse=.5+.5*Math.sin((tick-start)*Math.PI*2/3100);
- aura.style.opacity=String((.47+.5*pulse).toFixed(3));
- if(!reduced)root.style.transform="translate3d(0,0,0) scale("+(1+.026*pulse).toFixed(4)+")";
- const x=(-.16+p*1.34)*w;
- const sparkleIntensity=Math.max(0,1-Math.abs(p-.53)*10);
- sparkle.style.transform="translate3d("+x.toFixed(1)+"px,-50%,0) scale("+(0.6+sparkleIntensity*.7).toFixed(2)+")";
- sparkle.style.opacity=String((sparkleIntensity*.94).toFixed(3));
- if(typeof requestAnimationFrame==="function")request=requestAnimationFrame(frame);
+const brand=document.querySelector(".site-brand");
+const glow=brand&&brand.querySelector(".brand-flash");
+const halo=brand&&brand.querySelector(".brand-aura");
+if(!brand||!glow||!halo)return;
+const motion=window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : {matches:false};
+let handle=0,watchdog=0,lastFrame=-1;
+function animate(t){
+  handle=0;
+  if(document.hidden||motion.matches)return;
+  const seconds=t/1000;
+  /* Multiple slow, non-directional light intensities: no horizontal sweeps. */
+  const shimmer=.5+.5*Math.sin(seconds*2*Math.PI/3.7);
+  const crystal=.5+.5*Math.sin(seconds*2*Math.PI/5.3+1.1);
+  const sparkle=Math.pow(.5+.5*Math.sin(seconds*2*Math.PI/2.19+.6),6);
+  const brightness=Math.min(.96,.17+.42*shimmer+.23*crystal+.14*sparkle);
+  const ambient=Math.min(1,.52+.24*shimmer+.20*crystal);
+  glow.style.opacity=brightness.toFixed(3);
+  halo.style.opacity=ambient.toFixed(3);
+  const pulse=1+.018*shimmer+.007*crystal;
+  brand.style.transform="translate3d(0,0,0) scale("+pulse.toFixed(4)+")";
+  lastFrame=t;
+  if(typeof requestAnimationFrame==="function")handle=requestAnimationFrame(animate);
 }
-function resume(){
- if(document.hidden)return;
- if(request&&typeof cancelAnimationFrame==="function")cancelAnimationFrame(request);
- if(typeof requestAnimationFrame==="function"){
-   active=true;request=requestAnimationFrame(frame);
- }else if(!fallback){
-   fallback=setInterval(function(){frame(Date.now())},45);
- }
+function refresh(){
+  if(handle&&typeof cancelAnimationFrame==="function")cancelAnimationFrame(handle);
+  handle=0;
+  if(document.hidden||motion.matches){
+    brand.classList.remove("brand-live");
+    brand.style.transform="";
+    glow.style.opacity="";
+    halo.style.opacity="";
+    return;
+  }
+  if(typeof requestAnimationFrame==="function"){
+    brand.classList.add("brand-live");
+    handle=requestAnimationFrame(animate);
+  }else{
+    brand.classList.remove("brand-live");
+  }
 }
-resume();
-document.addEventListener("visibilitychange",function(){
- if(document.hidden&&request&&typeof cancelAnimationFrame==="function"){
-   cancelAnimationFrame(request);request=0;
- }else if(!document.hidden)resume();
-});
-window.addEventListener("pageshow",resume);
-window.addEventListener("focus",function(){if(!active)resume();});
-// The requested light is driven by frames, not by WebKit's background-position animations,
-// so mobile browsers and installed home-screen apps resume it whenever visible.
+refresh();
+document.addEventListener("visibilitychange",refresh);
+window.addEventListener("pageshow",refresh);
+window.addEventListener("focus",refresh);
+if(motion.addEventListener)motion.addEventListener("change",refresh);
+else if(motion.addListener)motion.addListener(refresh);
+/* A slow health check can re-arm frames after mobile WebKit or TV sleep. */
+watchdog=setInterval(function(){
+  if(document.hidden||motion.matches)return;
+  const now=window.performance&&performance.now?performance.now():Date.now();
+  if(!handle || lastFrame<0 || now-lastFrame>2200)refresh();
+},4500);
 })();
 
 </script>
