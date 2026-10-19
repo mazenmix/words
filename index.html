@@ -191,11 +191,38 @@
   .site-brand,.site-brand::after{animation:none!important}
 }
 
+
+/* Brand and device-specific, native-capable install action. */
+.app-header{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;width:100%}
+.site-brand{font-size:clamp(13px,1.25vw,18px);line-height:1.55;letter-spacing:.025em;max-width:100%;text-align:center;white-space:normal;text-wrap:balance}
+.site-brand::after{white-space:normal}
+.install-app{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:40px;max-width:100%;padding:9px 17px;border:1px solid transparent;border-radius:999px;color:#f0f4ff;background:linear-gradient(#0b0d17,#0b0d17) padding-box,linear-gradient(110deg,#e997c5,#bdc7ee,#87d9fe) border-box;box-shadow:0 0 16px #f1a8e015;font:400 clamp(12px,1.05vw,14px)/1.25 Tahoma,"Segoe UI",Arial,sans-serif;cursor:pointer;transition:box-shadow .25s,transform .25s}
+.install-app svg{color:#adddff;flex:none}
+.install-app:hover{transform:translateY(-1px);box-shadow:0 0 23px #ffc2e642,0 0 19px #87d9ff22}
+.install-app:active{transform:scale(.98)}
+.install-app[hidden]{display:none!important}
+.install-app:focus-visible,.install-close:focus-visible,.install-ok:focus-visible{outline:2px solid #adddff;outline-offset:4px}
+.install-dialog{margin:auto;max-height:85dvh;width:min(92vw,420px);padding:0;border:1px solid #555166;border-radius:22px;background:#12121b;color:#f4f6fd;box-shadow:0 23px 90px #000d;font-family:Tahoma,"Segoe UI",Arial,sans-serif}
+.install-dialog::backdrop{background:#000c;backdrop-filter:blur(5px)}
+.install-modal{position:relative;padding:31px 24px 24px;text-align:center}
+.install-star{font-size:27px;color:#ffd0e9}
+.install-modal h2{margin:12px 0;font-size:20px}
+.install-modal p{white-space:pre-line;font-size:14px;line-height:1.8;color:#ecf0f9;margin:9px 0}
+.install-modal .install-note{font-size:12px;color:#acb4c8}
+.install-close{position:absolute;right:11px;top:7px;padding:4px 8px;background:none;border:0;color:#b7b7c9;font:30px/1 Tahoma,Arial,sans-serif;cursor:pointer}
+.install-ok{margin-top:15px;width:100%;padding:13px;border:0;border-radius:12px;background:linear-gradient(100deg,#f9bcd8,#a6dcff);color:#16131d;font:700 13px Tahoma,Arial,sans-serif;cursor:pointer}
+@media(max-width:600px){.site-brand{font-size:clamp(13px,3.55vw,16px);letter-spacing:0}.app-header{gap:12px}}
+@media(prefers-reduced-motion:reduce){.install-app{transition:none!important}}
 </style>
 </head>
 <body>
 <main class="page">
-<div class="site-brand" data-text="MazenmiX" aria-label="MazenmiX">MazenmiX</div>
+<header class="app-header">
+<div class="site-brand" data-text="Stay a Juggernaut with MazenmiX" aria-label="Stay a Juggernaut with MazenmiX">Stay a Juggernaut with MazenmiX</div>
+<button id="install-app" type="button" class="install-app" aria-label="Install MX Life on this device">
+<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v3h14v-3"/></svg><span>Install it in you phone</span>
+</button>
+</header>
 <section class="quotes" id="quotes" aria-label="Motivational quotes in fourteen languages">
 <div class="language" lang="en" dir="ltr"><p class="quote" data-lang="en">Time will not wait for you. You cannot negotiate with the past. Start now.</p></div>
 <div class="language" lang="ar" dir="rtl"><p class="quote" data-lang="ar">الوقت ما راح ينتظرك. ما تكدر تفاوض الماضي. ابدأ هسه.</p></div>
@@ -213,6 +240,16 @@
 <div class="language" lang="he" dir="rtl" aria-label="עברית"><p class="quote" data-lang="he">הזמן לא יחכה לך. אי אפשר להתמקח עם העבר. תתחיל עכשיו.</p></div>
 </section>
 </main>
+<dialog id="install-dialog" class="install-dialog" aria-labelledby="install-heading">
+ <div class="install-modal">
+  <button id="install-close" type="button" class="install-close" aria-label="Close">×</button>
+  <div class="install-star">✦</div>
+  <h2 id="install-heading">Install MX Life</h2>
+  <p id="install-help">Install MX Life on your Home Screen.</p>
+  <p id="install-note" class="install-note"></p>
+  <button id="install-ok" type="button" class="install-ok">Got it</button>
+ </div>
+</dialog>
 <script>
 (function(){
 "use strict";
@@ -288,6 +325,72 @@ function rotate(){
 }
 window.setInterval(rotate,15000);
 })();
+</script>
+<script>
+
+(function(){
+"use strict";
+const button=document.getElementById("install-app");
+const dialog=document.getElementById("install-dialog");
+const close=document.getElementById("install-close");
+const ok=document.getElementById("install-ok");
+const help=document.getElementById("install-help");
+const note=document.getElementById("install-note");
+let installPrompt=null;
+const installed=()=>window.matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
+function sync(){button.hidden=installed()}
+sync();
+window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();installPrompt=e;sync()});
+window.addEventListener("appinstalled",()=>{installPrompt=null;button.hidden=true;if(dialog.open)dialog.close()});
+function guide(){
+ const ua=navigator.userAgent||"";
+ const ios=ua.includes("iPhone")||ua.includes("iPad")||ua.includes("iPod")||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+ const android=ua.includes("Android");
+ const mac=!ios&&(ua.includes("Macintosh")||ua.includes("Mac OS X"));
+ const edge=ua.includes("Edg/");
+ const firefox=ua.includes("Firefox");
+ const embedded=["Telegram","Instagram","FBAN","FBAV","Line/"].some(s=>ua.includes(s));
+ if(ios){
+  help.textContent="1. Open MX Life in Safari.\n2. Tap Share (the square with an up arrow).\n3. Select Add to Home Screen, then Add.";
+  note.textContent=embedded?"Open this link in Safari from the app menu first.":"The icon will appear on your iPhone or iPad Home Screen.";
+ }else if(android){
+  help.textContent="1. Open MX Life in Chrome.\n2. Tap the browser menu (⋮).\n3. Choose Install app or Add to Home screen, then confirm.";
+  note.textContent=embedded?"Open the link in Chrome first.":"The icon will appear on your Android Home Screen.";
+ }else if(mac){
+  help.textContent="Safari: File → Add to Dock.\nChrome or Edge: Browser menu → Install MX Life.";
+  note.textContent="MX Life will be available from your Dock or Applications.";
+ }else if(edge){
+  help.textContent="Open the Edge menu (⋯), select Apps → Install this site as an app, and confirm.";
+  note.textContent="The site will open in its own app window.";
+ }else if(firefox){
+  help.textContent="Open MX Life in Chrome or Edge, then choose Install from the browser menu.";
+  note.textContent="Desktop Firefox does not support this native installation prompt.";
+ }else{
+  help.textContent="Open the browser menu (⋮ or ⋯) and choose Install MX Life, Install app, or Add to Home screen.";
+  note.textContent="If this option is missing, try Chrome, Edge, or Safari.";
+ }
+ if(dialog.showModal)dialog.showModal();
+ else dialog.setAttribute("open","");
+}
+button.addEventListener("click",async()=>{
+ if(installed()){sync();return}
+ if(installPrompt){
+  const prompt=installPrompt;installPrompt=null;
+  try{
+   await prompt.prompt();
+   const choice=await prompt.userChoice;
+   if(choice&&choice.outcome==="accepted"){sync();return}
+  }catch(e){}
+ }
+ guide();
+});
+function dismiss(){if(dialog.close&&dialog.open)dialog.close();else dialog.removeAttribute("open")}
+close.addEventListener("click",dismiss);
+ok.addEventListener("click",dismiss);
+dialog.addEventListener("click",e=>{if(e.target===dialog)dismiss()});
+if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+})();
+
 </script>
 </body>
 </html>
