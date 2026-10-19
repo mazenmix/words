@@ -3,11 +3,11 @@
 A minimalist, full-black multilingual motivational website designed for phones, tablets, laptops and desktop screens.
 
 ## Experience
-- One synchronized motivational quote in **English, Arabic, Simplified Chinese, Japanese, Filipino, Spanish, Turkish, Thai and Vietnamese**, stacked in that order.
-- **1,250 meaningful combinations** formed from parallel, hand-written sentence sets so all nine languages show the same thought.
+- One synchronized, distinctly colored motivational quote in **English, Arabic, Simplified Chinese, Japanese, Filipino, Spanish, Turkish, Thai, Vietnamese, Russian, Portuguese and French**, stacked in that order.
+- **1,250 meaningful combinations** formed from parallel, hand-written sentence sets so all twelve languages show the same thought.
 - A new synchronized quote every **30 seconds**, with soft fading, subtle glowing and pulsating transitions.
 - No consecutive repeats; session-scoped shuffled rotation avoids any repetition until the whole set has been shown.
-- Tahoma-first typography with platform font fallbacks for non-Latin scripts; readable layouts on all screen sizes.
+- No visible language labels, delicate divider lines, and Tahoma-first typography with platform font fallbacks for non-Latin scripts; readable layouts on all screen sizes.
 - Static HTML/CSS/JS, no build tools, backend, translation API or paid subscription required.
 
 ## Publish
