@@ -3,7 +3,7 @@
 MX Life is a minimalist, full-black multilingual motivational website designed for phones, tablets, laptops and desktop screens.
 
 ## Experience
-- One synchronized, distinctly colored motivational quote in **English, Arabic, Simplified Chinese, Japanese, Filipino, Spanish, Turkish, Thai, Indonesian, Vietnamese, Russian, Portuguese, French and Hebrew**, stacked in that order.
+- One synchronized, distinctly colored motivational quote in **English, Arabic, Filipino, Indonesian, Thai, Spanish, Simplified Chinese, Japanese, Turkish, Vietnamese, Russian, Portuguese, French and Hebrew**, stacked in that order.
 - **1,250 meaningful combinations** formed from parallel, hand-written sentence sets so all fourteen languages show the same thought.
 - A new synchronized quote every **30 seconds**, with soft fading, subtle glowing and pulsating transitions.
 - No consecutive repeats; session-scoped shuffled rotation avoids any repetition until the whole set has been shown.
