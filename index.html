@@ -163,34 +163,34 @@
 }
 .brand-text{
   z-index:1;
-  color:#f8fcff;
+  color:#e7edf7;
   background:linear-gradient(113deg,
-    #bdc7d5 0%,#faffff 10%,#ffd5ed 22%,
-    #f9fbff 33%,#8fd8ff 44%,#ffffff 53%,
-    #c1cada 63%,#ffafdb 77%,#b6e4ff 89%,#ffffff 100%);
+    #aeb9c9 0%,#e1e8f3 10%,#f1c9e2 22%,
+    #e4eaf4 33%,#85c8ea 44%,#ebedf5 53%,
+    #b4bdce 63%,#eda9d1 77%,#aedbf5 89%,#e7eaf2 100%);
   -webkit-background-clip:text;
   background-clip:text;
   -webkit-text-fill-color:transparent;
   /* Luminous etched letters; all highlights stay inside letter shapes. */
-  filter:drop-shadow(0 0 3px rgba(255,255,255,.82))
-         drop-shadow(0 0 10px rgba(255,181,226,.40))
-         drop-shadow(0 0 17px rgba(123,206,255,.40));
+  filter:drop-shadow(0 0 3px rgba(237,242,255,.46))
+         drop-shadow(0 0 10px rgba(255,181,226,.32))
+         drop-shadow(0 0 17px rgba(123,206,255,.31));
 }
 .brand-flash{
   z-index:2;
   pointer-events:none;
-  color:#f5faff;
+  color:#dce7f5;
   background:linear-gradient(110deg,
-    #fff 0%,#fbedfa 20%,#fff 38%,
-    #c5efff 58%,#fff 79%,#fbd0f3 100%);
+    #e6ebf6 0%,#f0dbea 20%,#e9edf7 38%,
+    #bce2f4 58%,#e8ebf4 79%,#efd0e6 100%);
   -webkit-background-clip:text;
   background-clip:text;
   -webkit-text-fill-color:transparent;
-  filter:drop-shadow(0 0 4px rgba(255,255,255,.95))
-         drop-shadow(0 0 11px rgba(255,220,248,.92))
-         drop-shadow(0 0 20px rgba(110,205,255,.77))
-         drop-shadow(0 0 30px rgba(255,150,212,.32));
-  opacity:.36;
+  filter:drop-shadow(0 0 4px rgba(236,241,255,.58))
+         drop-shadow(0 0 11px rgba(245,211,236,.57))
+         drop-shadow(0 0 20px rgba(110,205,255,.48))
+         drop-shadow(0 0 30px rgba(255,150,212,.25));
+  opacity:.28;
   will-change:opacity;
 }
 .brand-aura{
@@ -200,8 +200,8 @@
   inset:-19px -24px;
   border-radius:50%;
   background:radial-gradient(ellipse at center,
-    rgba(255,202,236,.34) 0%,
-    rgba(162,217,255,.28) 29%,
+    rgba(255,202,236,.29) 0%,
+    rgba(162,217,255,.23) 29%,
     rgba(177,165,250,.09) 57%,transparent 81%);
   filter:blur(11px);
   opacity:.72;
@@ -217,9 +217,9 @@
   50%{transform:translate3d(0,0,0) scale(1.025)}
 }
 @keyframes mx-signature-facet-light{
-  0%,100%{opacity:.17}
-  40%{opacity:.91}
-  68%{opacity:.32}
+  0%,100%{opacity:.12}
+  40%{opacity:.69}
+  68%{opacity:.26}
 }
 @keyframes mx-signature-aura{
   0%,100%{opacity:.56}
@@ -230,9 +230,9 @@
   50%{-webkit-transform:translate3d(0,0,0) scale(1.025)}
 }
 @-webkit-keyframes mx-signature-facet-light{
-  0%,100%{opacity:.17}
-  40%{opacity:.91}
-  68%{opacity:.32}
+  0%,100%{opacity:.12}
+  40%{opacity:.69}
+  68%{opacity:.26}
 }
 @-webkit-keyframes mx-signature-aura{
   0%,100%{opacity:.56}
@@ -476,8 +476,8 @@ function animate(t){
   const shimmer=.5+.5*Math.sin(seconds*2*Math.PI/3.7);
   const crystal=.5+.5*Math.sin(seconds*2*Math.PI/5.3+1.1);
   const sparkle=Math.pow(.5+.5*Math.sin(seconds*2*Math.PI/2.19+.6),6);
-  const brightness=Math.min(.96,.17+.42*shimmer+.23*crystal+.14*sparkle);
-  const ambient=Math.min(1,.52+.24*shimmer+.20*crystal);
+  const brightness=Math.min(.72,.12+.29*shimmer+.19*crystal+.10*sparkle);
+  const ambient=Math.min(.85,.43+.20*shimmer+.15*crystal);
   glow.style.opacity=brightness.toFixed(3);
   halo.style.opacity=ambient.toFixed(3);
   const pulse=1+.018*shimmer+.007*crystal;
