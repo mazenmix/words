@@ -1,6 +1,6 @@
 /* MX Life offline app shell. Versioned cache for transparent updates. */
 "use strict";
-const CACHE="mx-life-offline-v2";
+const CACHE="mx-life-offline-v3";
 const ASSETS=[
   "./",
   "./index.html",
