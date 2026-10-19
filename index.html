@@ -274,6 +274,52 @@
 .install-ok{margin-top:15px;width:100%;padding:13px;border:0;border-radius:12px;background:linear-gradient(100deg,#f9bcd8,#a6dcff);color:#16131d;font:700 13px Tahoma,Arial,sans-serif;cursor:pointer}
 @media(max-width:600px){.site-brand{font-size:clamp(13px,3.55vw,16px);letter-spacing:0}.app-header{gap:12px}}
 @media(prefers-reduced-motion:reduce){.install-app{transition:none!important}}
+
+/* MX Life responsive compact quote rhythm v1
+   Keep 14 languages legible, reduce unused height and retain delicate separators. */
+.page{
+  padding:clamp(17px,2.6vh,32px) clamp(16px,4.8vw,58px);
+  gap:clamp(13px,1.9vh,23px);
+}
+.app-header{gap:clamp(8px,1.3vh,12px)}
+.quotes{row-gap:0}
+.language + .language{
+  margin-top:clamp(5px,.7vh,9px);
+  padding-top:clamp(7px,1vh,12px);
+}
+.language + .language::before{
+  width:min(55%,430px);
+  background:linear-gradient(90deg,
+    transparent,rgba(255,255,255,.07) 19%,
+    rgba(255,255,255,.19) 50%,
+    rgba(255,255,255,.07) 81%,transparent);
+}
+.quote{font-size:clamp(14px,1.18vw,18px);line-height:1.43}
+.language:first-child .quote{
+  font-size:clamp(19px,1.7vw,25px);
+  line-height:1.36;
+}
+.language:nth-child(2) .quote{
+  font-size:clamp(17px,1.46vw,22px);
+  line-height:1.47;
+}
+@media(max-width:600px){
+  .page{padding:18px 15px 22px;gap:12px}
+  .app-header{gap:10px}
+  .language + .language{margin-top:5px;padding-top:9px}
+  .language + .language::before{width:58%}
+  .quote{font-size:clamp(14px,3.8vw,16.5px);line-height:1.43}
+  .language:first-child .quote{font-size:clamp(19px,5vw,23px);line-height:1.36}
+  .language:nth-child(2) .quote{font-size:clamp(17px,4.55vw,21px);line-height:1.47}
+}
+@media(max-height:720px){
+  .page{padding-top:14px;padding-bottom:17px;gap:11px}
+  .language + .language{margin-top:4px;padding-top:7px}
+}
+@media(min-width:1100px) and (min-height:950px){
+  .page{justify-content:center}
+}
+
 </style>
 </head>
 <body>
