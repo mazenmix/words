@@ -123,7 +123,7 @@
 .quote[data-lang="he"]{color:#f5b9f0;}
 .language[lang="he"] .quote{direction:rtl;unicode-bidi:plaintext;}
 
-/* Polished, small creator signature: an animated platinum / rose / sky finish. */
+/* Cinematic metallic creator signature: platinum, sapphire and rose reflections. */
 .page{
   flex-direction:column;
   align-items:center;
@@ -137,62 +137,117 @@
   align-self:center;
   margin:0;
   padding:3px 7px 5px;
-  font:700 clamp(17px,1.5vw,22px)/1.35 Tahoma,"Segoe UI",Arial,sans-serif;
-  letter-spacing:.105em;
+  max-width:100%;
   text-align:center;
-  white-space:nowrap;
+  white-space:normal;
+  text-wrap:balance;
+  font:700 clamp(13px,1.25vw,18px)/1.55 Tahoma,"Segoe UI",Arial,sans-serif;
+  letter-spacing:.025em;
   user-select:none;
   isolation:isolate;
-  background:linear-gradient(110deg,
-      #b8c2ce 0%,#faffff 13%,#c3cbd5 25%,#ffd0eb 35%,
-      #fff 46%,#8ad8fc 55%,#e8ebf0 68%,#faffff 79%,#c0cbda 95%);
-  background-size:240% 100%;
+  /* High-contrast polished platinum with interleaved pink/sky reflections. */
+  background-image:linear-gradient(108deg,
+    #8291a6 0%,#fff 7%,#b9bfd0 13%,#f7fdff 19%,
+    #ff9bd7 29%,#fff5fc 34%,#92dffc 43%,#fff 49%,
+    #9ba8bc 55%,#ffffff 63%,#ffb1e0 72%,#7bc9fa 81%,#fff 91%,#a4afc4 100%);
+  background-size:330% 100%;
+  background-position:100% center;
   -webkit-background-clip:text;
   background-clip:text;
   -webkit-text-fill-color:transparent;
   color:transparent;
-  filter:drop-shadow(0 0 3px rgba(215,233,255,.25));
-  animation:brand-metal-sheen 8s linear infinite,brand-breathe 3.6s ease-in-out infinite;
+  filter:drop-shadow(0 0 3px rgba(248,243,255,.55))
+         drop-shadow(0 0 10px rgba(162,209,255,.25));
+  animation:brand-platinum-flow 9s linear infinite,
+            brand-cinematic-breathe 4.2s ease-in-out infinite;
+  will-change:filter,background-position;
 }
+/* Subtle backlight, glowing as if the wordmark is engraved in illuminated metal. */
+.site-brand::before{
+  content:"";
+  position:absolute;
+  pointer-events:none;
+  z-index:-1;
+  inset:-10px -14px;
+  border-radius:50%;
+  background:radial-gradient(ellipse at center,
+     rgba(255,211,245,.17) 0%,
+     rgba(120,198,255,.11) 32%,
+     transparent 77%);
+  filter:blur(12px);
+  animation:brand-ambient-aura 4.2s ease-in-out infinite;
+}
+/* A thin, bright specular sweep travels over the actual glyphs. */
 .site-brand::after{
   content:attr(data-text);
   position:absolute;
   inset:3px 7px 5px;
   z-index:1;
-  display:block;
   pointer-events:none;
+  display:block;
+  white-space:normal;
+  text-align:center;
+  font:inherit;
+  letter-spacing:inherit;
+  line-height:inherit;
   color:transparent;
   -webkit-text-fill-color:transparent;
-  background:linear-gradient(112deg,transparent 0%,transparent 41%,
-    rgba(255,255,255,.08) 46%,rgba(255,255,255,.97) 50%,
-    rgba(255,230,247,.27) 53%,transparent 58%,transparent 100%);
-  background-size:260% 100%;
+  background:linear-gradient(105deg,
+    transparent 0%,
+    transparent 39%,
+    rgba(255,255,255,.10) 43%,
+    rgba(255,252,254,.96) 47%,
+    #ffffff 48.5%,
+    rgba(194,229,255,.86) 50%,
+    rgba(255,214,237,.24) 53%,
+    transparent 58%,transparent 100%);
+  background-size:300% 100%;
   background-position:130% center;
   -webkit-background-clip:text;
   background-clip:text;
-  animation:brand-light-pass 6.6s ease-in-out infinite;
+  filter:drop-shadow(0 0 5px rgba(255,255,255,.60));
+  animation:brand-cinematic-light-pass 5.2s cubic-bezier(.42,0,.2,1) infinite;
 }
-@keyframes brand-metal-sheen{
+@keyframes brand-platinum-flow{
   0%{background-position:100% center}
-  100%{background-position:-120% center}
+  100%{background-position:-145% center}
 }
-@keyframes brand-breathe{
-  0%,100%{transform:scale(1);filter:drop-shadow(0 0 2px rgba(193,215,244,.16))}
-  50%{transform:scale(1.026);filter:drop-shadow(0 0 6px rgba(225,217,252,.44))}
+@keyframes brand-cinematic-breathe{
+  0%,100%{
+    transform:scale(1);
+    filter:drop-shadow(0 0 3px rgba(255,255,255,.43))
+           drop-shadow(0 0 8px rgba(119,203,255,.22));
+  }
+  50%{
+    transform:scale(1.035);
+    filter:drop-shadow(0 0 5px rgba(255,255,255,.82))
+           drop-shadow(0 0 15px rgba(252,165,220,.45))
+           drop-shadow(0 0 20px rgba(118,202,255,.36));
+  }
 }
-@keyframes brand-light-pass{
-  0%,22%{background-position:130% center;opacity:.12}
-  44%{opacity:.85}
-  68%,100%{background-position:-135% center;opacity:.12}
+@keyframes brand-ambient-aura{
+  0%,100%{opacity:.56;transform:scale(.95)}
+  50%{opacity:1;transform:scale(1.09)}
+}
+@keyframes brand-cinematic-light-pass{
+  0%,12%{background-position:135% center;opacity:0}
+  19%{opacity:1}
+  51%{background-position:-135% center;opacity:1}
+  57%,100%{background-position:-135% center;opacity:0}
 }
 @media(max-width:600px){
   .page{gap:clamp(26px,7vw,38px)}
-  .site-brand{font-size:clamp(17px,4.5vw,20px);letter-spacing:.085em}
+  .site-brand{font-size:clamp(13px,3.55vw,16px);letter-spacing:0}
+  .site-brand::after{inset:3px 7px 5px}
 }
 @media(prefers-reduced-motion:reduce){
-  .site-brand,.site-brand::after{animation:none!important}
+  .site-brand,.site-brand::before,.site-brand::after{
+    animation:none!important;
+    will-change:auto;
+  }
+  .site-brand{background-position:40% center}
+  .site-brand::after{opacity:0}
 }
-
 
 /* Brand and device-specific, native-capable install action. */
 .app-header{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:13px;width:100%}
@@ -222,7 +277,7 @@
 <header class="app-header">
 <div class="site-brand" data-text="Stay a Juggernaut with MazenmiX" aria-label="Stay a Juggernaut with MazenmiX">Stay a Juggernaut with MazenmiX</div>
 <button id="install-app" type="button" class="install-app" aria-label="Install MX Life on this device">
-<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v3h14v-3"/></svg><span>Install it in you phone</span>
+<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v3h14v-3"/></svg><span>Install it now</span>
 </button>
 </header>
 <section class="quotes" id="quotes" aria-label="Motivational quotes in fourteen languages">
